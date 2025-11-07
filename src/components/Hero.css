@@ -65,9 +65,138 @@
   animation: fadeInUp 1s ease-out 1s both; /* Shorter delay since name keeps animating */
 }
 
+.hero-contact-info {
+  margin-bottom: 2rem;
+  animation: fadeInUp 1s ease-out 1.2s both;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding: 0;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  transform: translateX(5px);
+}
+
+.contact-item svg {
+  fill: #f97316;
+  flex-shrink: 0;
+}
+
+.contact-numbers {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.contact-numbers a,
+.contact-item a {
+  color: #8b949e;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 400;
+  transition: all 0.3s ease;
+}
+
+.contact-numbers a:hover,
+.contact-item a:hover {
+  color: #e6edf3;
+}
+
+/* Contact info positioned between head and neck area */
+.hero-image .hero-contact-info {
+  position: absolute;
+  top: 120px;
+  right: -140px;
+  z-index: 3;
+  animation: fadeInUp 1s ease-out 1.4s both, floatUpDown 4s ease-in-out infinite 2.4s;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 1.5rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(249, 115, 22, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Traveling light border animation */
+.hero-image .hero-contact-info::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  padding: 2px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    transparent, 
+    transparent,
+    #f97316,
+    #fbbf24,
+    #f97316,
+    transparent,
+    transparent,
+    transparent
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: subtract;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: subtract;
+  z-index: -1;
+  animation: travelBorder 3s linear infinite;
+}
+
+@keyframes travelBorder {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes floatUpDown {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.hero-image .contact-item {
+  justify-content: flex-start;
+  margin-bottom: 0.75rem;
+  white-space: nowrap;
+}
+
+.hero-image .contact-item:last-child {
+  margin-bottom: 0;
+}
+
+.hero-image .contact-item svg {
+  width: 18px;
+  height: 18px;
+  fill: #f97316;
+}
+
+.hero-image .contact-item a {
+  color: #e6edf3;
+  font-size: 0.9rem;
+}
+
 .hero-social {
   display: flex;
   gap: 1rem;
+  margin-top: 2rem;
   margin-bottom: 2.5rem;
   animation: fadeInUp 1s ease-out 1.5s both; /* Shorter delay */
 }
@@ -122,6 +251,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .image-placeholder {

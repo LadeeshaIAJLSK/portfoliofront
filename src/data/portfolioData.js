@@ -7,8 +7,8 @@ export const portfolioData = {
       title: "Hotel Management System- Group Project",
       description: "The Hotel Management Application is a unified system that streamlines operations across five key modules: Reception, Restaurant, Owner, Kitchen, and Housekeeping. It manages guest reservations, food orders, room availability, cleaning schedules, and overall performance reporting. Together, these modules ensure efficient coordination, improved service quality, and smooth hotel management.",
       technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "CSS"],
-      github_backend: "https://github.com/LadeeshaIAJLSK/HMS- NEXTGENCODERS-backend",
-      github_frontend: "https://github.com/LadeeshaIAJLSK/HMS_NEXTGENCODERS-fronded",
+      github_backend: "https://github.com/LadeeshaIAJLSK/HMS-NEXTGENCODERS-backend/tree/test11",
+      github_frontend: "https://github.com/LadeeshaIAJLSK/HMS_NEXTGENCODERS-frondend/tree/test11",
       images: [
         "/src/assets/project1.1.png",
         "/src/assets/project1.2.png", 

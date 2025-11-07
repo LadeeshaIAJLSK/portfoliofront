@@ -54,6 +54,28 @@
   flex-shrink: 0;
 }
 
+.contact-location {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(249, 115, 22, 0.2);
+}
+
+.contact-location .contact-method {
+  background: rgba(249, 115, 22, 0.05);
+  border-color: rgba(249, 115, 22, 0.1);
+}
+
+.phone-numbers {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.phone-numbers a:hover {
+  color: #f97316;
+  transition: color 0.3s ease;
+}
+
 .contact-method span {
   color: #e6edf3;
   font-weight: 500;

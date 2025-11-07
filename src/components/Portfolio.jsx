@@ -391,39 +391,44 @@ const Portfolio = () => {
   const renderExpertise = () => {
     if (loading) return <div className="loading">Loading skills...</div>
     
+    // Duplicate skills array for seamless infinite scroll
+    const duplicatedSkills = [...skills, ...skills];
+    
     return (
       <div className="expertise-section">
         <h3 className="expertise-title">My Expertise</h3>
         <div className="skills-grid">
-          {skills.map((skill) => {
-            const progressDegree = (skill.percentage / 100) * 360;
-            const skillImage = getSkillImage(skill.name);
-            
-            return (
-              <div key={skill.id} className="skill-item">
-                <div className="skill-circle">
-                  <div 
-                    className="progress-circle" 
-                    style={{"--progress": `${progressDegree}deg`}}
-                  >
-                    <div className="skill-icon">
-                      {skillImage ? (
-                        <img 
-                          src={skillImage} 
-                          alt={skill.name}
-                          className="skill-image"
-                        />
-                      ) : (
-                        <span className="skill-fallback">{skill.name.charAt(0).toUpperCase()}</span>
-                      )}
+          <div className="skills-marquee">
+            {duplicatedSkills.map((skill, index) => {
+              const progressDegree = (skill.percentage / 100) * 360;
+              const skillImage = getSkillImage(skill.name);
+              
+              return (
+                <div key={`${skill.id}-${index}`} className="skill-item">
+                  <div className="skill-circle">
+                    <div 
+                      className="progress-circle" 
+                      style={{"--progress": `${progressDegree}deg`}}
+                    >
+                      <div className="skill-icon">
+                        {skillImage ? (
+                          <img 
+                            src={skillImage} 
+                            alt={skill.name}
+                            className="skill-image"
+                          />
+                        ) : (
+                          <span className="skill-fallback">{skill.name.charAt(0).toUpperCase()}</span>
+                        )}
+                      </div>
                     </div>
                   </div>
+                  <div className="skill-percentage">{skill.percentage}%</div>
+                  <div className="skill-name">{skill.name}</div>
                 </div>
-                <div className="skill-percentage">{skill.percentage}%</div>
-                <div className="skill-name">{skill.name}</div>
-              </div>
-            )
-          })}
+              )
+            })}
+          </div>
         </div>
       </div>
     )
