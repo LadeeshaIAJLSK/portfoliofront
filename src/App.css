@@ -10,7 +10,7 @@ html {
 
 .App {
   min-height: 100vh;
-  background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+  background: #000000;
   color: #e6edf3;
   font-family: 'Inter', sans-serif;
 }
@@ -44,7 +44,7 @@ main section {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0d1117;
+  background: #000000;
 }
 
 ::-webkit-scrollbar-thumb {

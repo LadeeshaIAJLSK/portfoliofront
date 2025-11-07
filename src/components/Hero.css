@@ -3,7 +3,9 @@
   display: flex;
   align-items: center;
   padding: 2rem 0;
-  background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+  background: #000000;
+  position: relative;
+  overflow: hidden;
 }
 
 .hero-container {
@@ -11,6 +13,8 @@
   margin: 0 auto;
   padding: 0 2rem;
   width: 100%;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-content {
@@ -125,9 +129,6 @@
   height: 500px;
   border-radius: 20px;
   overflow: hidden;
-  background: linear-gradient(135deg, #30363d 0%, #21262d 100%);
-  border: 2px solid #f97316;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   position: relative;
 }
 
@@ -150,9 +151,15 @@
 }
 
 @keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
 }
+
+
 
 @media (max-width: 968px) {
   .hero-content {
@@ -201,3 +208,6 @@
     transform: translateY(0);
   }
 }
+
+
+

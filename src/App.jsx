@@ -4,7 +4,6 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
 import Portfolio from './components/Portfolio'
-import Certificate from './components/Certificate'
 import Contact from './components/Contact'
 
 function App() {
@@ -25,7 +24,7 @@ function App() {
   // Update active section based on scroll position
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'portfolio', 'certificate', 'contact']
+      const sections = ['home', 'about', 'portfolio', 'contact']
       const scrollPosition = window.scrollY + 100
 
       sections.forEach(section => {
@@ -58,9 +57,6 @@ function App() {
         </section>
         <section id="portfolio">
           <Portfolio />
-        </section>
-        <section id="certificate">
-          <Certificate />
         </section>
         <section id="contact">
           <Contact />

@@ -1,55 +1,73 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './Certificate.css'
 
 const Certificate = () => {
-  const certificates = [
-    {
-      id: 1,
-      title: "React Developer Certification",
-      issuer: "Meta",
-      date: "2024",
-      image: "/api/placeholder/300/200",
-      verificationLink: "#"
-    },
-    {
-      id: 2,
-      title: "JavaScript Algorithms and Data Structures",
-      issuer: "freeCodeCamp",
-      date: "2024",
-      image: "/api/placeholder/300/200",
-      verificationLink: "#"
-    },
-    {
-      id: 3,
-      title: "Web Development Fundamentals",
-      issuer: "Coursera",
-      date: "2023",
-      image: "/api/placeholder/300/200",
-      verificationLink: "#"
+  const [certificates, setCertificates] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  // Load static certificate data
+  useEffect(() => {
+    import('../data/portfolioData.js').then((data) => {
+      setCertificates(data.portfolioData.certificates || [])
+      setLoading(false)
+    }).catch((error) => {
+      console.error('Error loading certificates:', error)
+      setCertificates([])
+      setLoading(false)
+    })
+  }, [])
+
+  // Process static certificates - only show ones with images
+  const validCertificates = certificates.filter(cert => {
+    return cert.image && cert.image.length > 0
+  }).map(cert => {
+    const imageUrl = cert.image
+    
+    return {
+      id: cert.id,
+      title: cert.title,
+      issuer: cert.issuer,
+      date: cert.date,
+      description: cert.description,
+      image: imageUrl
     }
-  ]
+  })
+
+  if (loading) {
+    return (
+      <section className="certificates">
+        <div className="container">
+          <h2 className="section-title">Certificates</h2>
+          <div className="loading">Loading certificates...</div>
+        </div>
+      </section>
+    )
+  }
 
   return (
     <section className="certificates">
       <div className="container">
         <h2 className="section-title">Certificates</h2>
-        <div className="certificates-grid">
-          {certificates.map((cert) => (
-            <div key={cert.id} className="certificate-card">
-              <div className="certificate-image">
-                <img src={cert.image} alt={cert.title} />
+        <p className="section-subtitle">My professional certifications and achievements</p>
+        {validCertificates.length === 0 ? (
+          <div className="no-certificates">
+            <p>No certificates uploaded yet. Add certificates in your admin panel.</p>
+          </div>
+        ) : (
+          <div className="certificates-grid">
+            {validCertificates.map((cert) => (
+              <div key={cert.id} className="certificate-card-simple">
+                <img 
+                  src={cert.image} 
+                  alt={cert.alt}
+                  onError={(e) => {
+                    e.target.style.display = 'none'
+                  }}
+                />
               </div>
-              <div className="certificate-content">
-                <h3 className="certificate-title">{cert.title}</h3>
-                <p className="certificate-issuer">{cert.issuer}</p>
-                <p className="certificate-date">{cert.date}</p>
-                <a href={cert.verificationLink} className="verify-link">
-                  View Certificate
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   )
