@@ -336,14 +336,14 @@
 /* Small laptops */
 @media (max-width: 900px) {
   .hero-image .hero-contact-info {
-    right: 10px;
+    right: 20px;
     top: 90px;
-    width: 220px;
-    padding: 1.1rem;
+    width: 200px;
+    padding: 1rem;
   }
   
   .hero-image .contact-item {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
   
   .image-placeholder {
@@ -352,17 +352,32 @@
   }
 }
 
-/* Very small laptops */
+/* Very small laptops - ensure full visibility */
 @media (max-width: 1000px) and (min-width: 969px) {
   .hero-image .hero-contact-info {
-    right: 0px;
+    right: 30px;
     top: 95px;
-    width: 200px;
-    padding: 1rem;
+    width: 180px;
+    padding: 0.9rem;
   }
   
   .hero-image .contact-item {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+  }
+  
+  .hero-image .contact-item svg {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Ensure contact info doesn't overflow on any small laptop */
+@media (max-width: 1100px) and (min-width: 901px) {
+  .hero-image .hero-contact-info {
+    right: 25px;
+    top: 92px;
+    width: 190px;
+    padding: 0.95rem;
   }
 }
 
@@ -404,6 +419,7 @@
   .hero {
     padding: 1rem 0;
     min-height: 90vh;
+    padding-top: 5rem; /* Add top padding to avoid navbar overlap */
   }
   
   .hero-container {
@@ -417,6 +433,7 @@
   .hero-name {
     font-size: 2.2rem;
     min-height: 2.7rem;
+    margin-top: 1rem; /* Additional margin for safety */
   }
   
   .hero-subtitle {
@@ -475,6 +492,10 @@
 }
 
 @media (max-width: 480px) {
+  .hero {
+    padding-top: 6rem; /* More padding for mobile */
+  }
+  
   .hero-container {
     padding: 0 0.5rem;
   }
@@ -482,10 +503,12 @@
   .hero-name {
     font-size: 1.8rem;
     min-height: 2.2rem;
+    margin-top: 1.5rem; /* More margin for mobile */
   }
   
   .hero-greeting {
     font-size: 1rem;
+    margin-top: 1rem;
   }
   
   .hero-subtitle {

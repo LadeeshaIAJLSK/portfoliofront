@@ -8,7 +8,7 @@ const Hero = () => {
   
   const handleDownloadCV = () => {
     // Your actual Google Drive file ID
-    const googleDriveFileId = '1W9gdRBKHLeodOAYFbEtcK7vepY36nrn3'
+    const googleDriveFileId = '1XZU_e44uXTc1TFDKtchO23JI-Pht0eTj'
     const downloadUrl = `https://drive.google.com/uc?export=download&id=${googleDriveFileId}`
     
     // Open in new tab for download
