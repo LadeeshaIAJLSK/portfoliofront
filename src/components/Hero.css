@@ -121,8 +121,9 @@
   border-radius: 12px;
   backdrop-filter: blur(10px);
   border: 2px solid rgba(249, 115, 22, 0.3);
-  position: relative;
+  position: absolute;
   overflow: hidden;
+  width: 280px;
 }
 
 /* Traveling light border animation */
@@ -291,6 +292,80 @@
 
 
 
+/* Large screens */
+@media (max-width: 1400px) {
+  .hero-image .hero-contact-info {
+    right: -120px;
+    top: 115px;
+  }
+}
+
+/* Large laptops */
+@media (max-width: 1200px) {
+  .hero-image .hero-contact-info {
+    right: -60px;
+    top: 110px;
+    width: 260px;
+    padding: 1.3rem;
+  }
+}
+
+/* Medium laptops and tablets */
+@media (max-width: 1024px) {
+  .hero-container {
+    padding: 0 1.5rem;
+  }
+  
+  .hero-content {
+    gap: 3rem;
+  }
+  
+  .hero-image .hero-contact-info {
+    right: -20px;
+    top: 100px;
+    padding: 1.25rem;
+    width: 240px;
+  }
+  
+  .image-placeholder {
+    width: 350px;
+    height: 450px;
+  }
+}
+
+/* Small laptops */
+@media (max-width: 900px) {
+  .hero-image .hero-contact-info {
+    right: 10px;
+    top: 90px;
+    width: 220px;
+    padding: 1.1rem;
+  }
+  
+  .hero-image .contact-item {
+    font-size: 0.85rem;
+  }
+  
+  .image-placeholder {
+    width: 320px;
+    height: 420px;
+  }
+}
+
+/* Very small laptops */
+@media (max-width: 1000px) and (min-width: 969px) {
+  .hero-image .hero-contact-info {
+    right: 0px;
+    top: 95px;
+    width: 200px;
+    padding: 1rem;
+  }
+  
+  .hero-image .contact-item {
+    font-size: 0.8rem;
+  }
+}
+
 @media (max-width: 968px) {
   .hero-content {
     grid-template-columns: 1fr;
@@ -306,15 +381,74 @@
     width: 300px;
     height: 400px;
   }
+  
+  /* Move contact info below image on mobile */
+  .hero-image .hero-contact-info {
+    position: static;
+    margin-top: 2rem;
+    background: rgba(0, 0, 0, 0.9);
+    animation: fadeInUp 1s ease-out 1.4s both;
+    width: 100%;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .hero-image {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 1rem 0;
+    min-height: 90vh;
+  }
+  
+  .hero-container {
+    padding: 0 1rem;
+  }
+  
+  .hero-content {
+    gap: 2rem;
+  }
+  
+  .hero-name {
+    font-size: 2.2rem;
+    min-height: 2.7rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .hero-social {
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .social-link {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .social-link svg {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 @media (max-width: 640px) {
   .hero-name {
     font-size: 2rem;
+    min-height: 2.4rem;
   }
   
   .hero-subtitle {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   
   .image-placeholder {
@@ -325,6 +459,57 @@
   .download-cv-btn {
     padding: 0.8rem 1.5rem;
     font-size: 1rem;
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  .hero-image .hero-contact-info {
+    width: 100%;
+    max-width: 300px;
+    padding: 1rem;
+  }
+  
+  .contact-item {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-container {
+    padding: 0 0.5rem;
+  }
+  
+  .hero-name {
+    font-size: 1.8rem;
+    min-height: 2.2rem;
+  }
+  
+  .hero-greeting {
+    font-size: 1rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+  
+  .image-placeholder {
+    width: 220px;
+    height: 300px;
+  }
+  
+  .download-cv-btn {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.95rem;
+  }
+  
+  .social-link {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .social-link svg {
+    width: 18px;
+    height: 18px;
   }
 }
 

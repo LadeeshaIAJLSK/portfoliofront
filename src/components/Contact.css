@@ -165,20 +165,158 @@
   color: #ef4444;
 }
 
+/* Tablet Styles */
+@media (max-width: 1024px) {
+  .contact {
+    padding: 3rem 0;
+  }
+  
+  .contact-content {
+    gap: 3rem;
+  }
+}
+
 @media (max-width: 968px) {
+  .contact {
+    padding: 2rem 0;
+  }
+  
   .contact-content {
     grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .contact-info {
+    text-align: center;
+  }
+  
+  .contact-methods {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 1.5rem 0;
+  }
+  
+  .contact-content {
     gap: 2rem;
+  }
+  
+  .contact-info h3 {
+    font-size: 1.5rem;
+  }
+  
+  .contact-info p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .contact-method {
+    padding: 0.8rem;
+  }
+  
+  .contact-method svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .contact-form {
+    padding: 1.5rem;
   }
 }
 
 @media (max-width: 640px) {
+  .contact-info h3 {
+    font-size: 1.3rem;
+  }
+  
+  .contact-info p {
+    font-size: 0.95rem;
+  }
+  
+  .contact-method {
+    padding: 0.7rem;
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+  
+  .contact-method svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .phone-numbers {
+    align-items: center;
+  }
+  
   .contact-form {
-    padding: 1.5rem;
+    padding: 1.25rem;
   }
   
   .form-group input,
   .form-group textarea {
     padding: 0.8rem;
+    font-size: 0.95rem;
+  }
+  
+  .send-btn {
+    padding: 0.9rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact {
+    padding: 1rem 0;
+  }
+  
+  .contact-content {
+    gap: 1.5rem;
+  }
+  
+  .contact-info h3 {
+    font-size: 1.2rem;
+  }
+  
+  .contact-info p {
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .contact-method {
+    padding: 0.6rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .contact-method span {
+    font-size: 0.9rem;
+  }
+  
+  .contact-form {
+    padding: 1rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 0.7rem;
+    font-size: 0.9rem;
+  }
+  
+  .send-btn {
+    padding: 0.8rem;
+    font-size: 0.95rem;
+  }
+  
+  .status-message {
+    padding: 0.8rem;
+    font-size: 0.9rem;
   }
 }

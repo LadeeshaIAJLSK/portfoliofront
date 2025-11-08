@@ -155,7 +155,36 @@
 }
 
 /* Responsive design */
+@media (max-width: 1024px) {
+  .skills-marquee {
+    animation-duration: 55s;
+    gap: 3.5rem;
+  }
+  
+  .skill-circle {
+    width: 110px;
+    height: 110px;
+  }
+  
+  .skill-image {
+    width: 42px;
+    height: 42px;
+  }
+  
+  .skill-percentage {
+    font-size: 1.4rem;
+  }
+  
+  .skill-name {
+    font-size: 0.95rem;
+  }
+}
+
 @media (max-width: 768px) {
+  .skills-grid {
+    padding: 1.5rem 0;
+  }
+  
   .skills-marquee {
     animation-duration: 45s;
     gap: 3rem;
@@ -166,8 +195,22 @@
     height: 100px;
   }
   
+  .skill-icon {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .skill-image {
+    width: 38px;
+    height: 38px;
+  }
+  
   .skill-icon i {
     font-size: 2rem;
+  }
+  
+  .skill-fallback {
+    font-size: 1.3rem;
   }
   
   .skill-percentage {
@@ -176,5 +219,125 @@
   
   .skill-name {
     font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .skills-marquee {
+    animation-duration: 40s;
+    gap: 2.5rem;
+  }
+  
+  .skill-circle {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .skill-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .skill-image {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .skill-icon i {
+    font-size: 1.8rem;
+  }
+  
+  .skill-fallback {
+    font-size: 1.2rem;
+  }
+  
+  .skill-percentage {
+    font-size: 1.15rem;
+  }
+  
+  .skill-name {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-grid {
+    padding: 1rem 0;
+  }
+  
+  .skills-marquee {
+    animation-duration: 35s;
+    gap: 2rem;
+  }
+  
+  .skill-circle {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 0.8rem;
+  }
+  
+  .skill-icon {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .skill-image {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .skill-icon i {
+    font-size: 1.6rem;
+  }
+  
+  .skill-fallback {
+    font-size: 1rem;
+  }
+  
+  .skill-percentage {
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+  }
+  
+  .skill-name {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .skills-marquee {
+    animation-duration: 30s;
+    gap: 1.5rem;
+  }
+  
+  .skill-circle {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .skill-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .skill-image {
+    width: 26px;
+    height: 26px;
+  }
+  
+  .skill-icon i {
+    font-size: 1.4rem;
+  }
+  
+  .skill-fallback {
+    font-size: 0.9rem;
+  }
+  
+  .skill-percentage {
+    font-size: 0.95rem;
+  }
+  
+  .skill-name {
+    font-size: 0.75rem;
   }
 }

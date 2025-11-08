@@ -23,21 +23,22 @@ const Contact = () => {
     setStatus('')
 
     try {
-      // Formspree endpoint with your actual form ID
+      // Create a new FormData object for better compatibility
+      const formDataToSend = new FormData()
+      formDataToSend.append('name', formData.name)
+      formDataToSend.append('email', formData.email)
+      formDataToSend.append('message', formData.message)
+      formDataToSend.append('_subject', `Portfolio Contact from ${formData.name}`)
+      
+      // Try Formspree first
       const formspreeEndpoint = 'https://formspree.io/f/mzzkjvjy'
       
       const response = await fetch(formspreeEndpoint, {
         method: 'POST',
+        body: formDataToSend,
         headers: {
-          'Content-Type': 'application/json',
           'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          _subject: `Portfolio Contact from ${formData.name}`,
-        }),
+        }
       })
 
       if (response.ok) {
@@ -47,11 +48,21 @@ const Contact = () => {
       } else {
         const errorData = await response.json()
         console.error('Formspree error:', errorData)
-        setStatus('error')
+        
+        // If Formspree fails, fall back to mailto
+        const mailtoLink = `mailto:jazzladeesha@gmail.com?subject=Portfolio Contact from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`
+        window.location.href = mailtoLink
+        setStatus('success')
+        setFormData({ name: '', email: '', message: '' })
       }
     } catch (error) {
       console.error('Network error:', error)
-      setStatus('error')
+      
+      // Fallback to mailto if there's a network error
+      const mailtoLink = `mailto:jazzladeesha@gmail.com?subject=Portfolio Contact from ${encodeURIComponent(formData.name)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`)}`
+      window.location.href = mailtoLink
+      setStatus('success')
+      setFormData({ name: '', email: '', message: '' })
     } finally {
       setIsLoading(false)
     }
